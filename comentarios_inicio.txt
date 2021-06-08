@@ -1,0 +1,75 @@
+crear entorno virtual
+python3 -m venv env
+
+intalar pandas
+pip install pandas
+
+instala numpay
+pip install numpy
+
+instalar ipython
+pip install ipython
+
+dentro del shell entramos a ipython
+ipython
+
+import numpy as np
+
+import  pandas as pd
+
+############################ipython##############################3
+
+ipython nos permite interactuar de una mejor manera con el 
+shell de python3
+
+para ingresar:
+
+ipython
+
+-limpiar consola:
+
+clear
+
+con la tecla tab podemos autocompletar variables funciones 
+o direccion dentro de ipython
+
+en ipython se puede usar los comando de linux ls,cd etc
+
+-para conocer mas de una funcion solo agregamos un ? al nombre
+
+nombre_funcion?
+
+
+-para conocer el codigo fuente de la funcion se agrega 2 ?
+
+nombre_funcion??
+
+-comandos especiales:
+
+ipython provee comandos para facilitarnso tareas 
+
+-cuanto tiempo le lleva a una funcion ejecutar su codigo:
+
+%time nombre_funcion()
+
+%time super_task()
+
+-limpiar todo el namespace que hayamos ocupado(variables, funciones , todo limpio)
+
+%reset
+
+-ejecutar un script en ipython 
+
+%run nombre_script.py
+
+-obtener el codigo de un script:
+
+%load nombre_script.py
+
+-crear archivo con IPython
+
+%save nombre_script_guardar.py linea_inicial-linea_fianl
+
+%save demo.py 23-31
+
+*con este no se puede agregar mas comandos posetriormente, sobreescribira el archivo

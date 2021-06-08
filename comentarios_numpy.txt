@@ -1,0 +1,87 @@
+##########Arreglo#############
+
+un arreglo es una lista de python, con diferencias
+velocidad y consume menos memoria 
+
+-importar numpy:
+
+import numpy as np 
+
+-crear un array apartir de una lista
+
+np.array(nombre_objeto_iterable)
+
+np.array(lista)
+
+un arreglo contiene diferentes atributos como lo son:
+
+-conocer la cantidad de dimensiones del arreglo
+
+nombre_array.ndim
+
+a.ndim
+
+-conocer la cantidad de elementos del arreglo:
+
+nombre_array.size
+
+a.size
+
+-conocer el tamaño en bits
+
+nombre_array.itemsize
+
+a.itemsize
+
+-conocer la forma de nuestro arreglo
+
+nombre_array.shape
+
+a.shape
+
+################Obtener de eleemntos ###############
+
+se obtiene los valores de los elementos por medio de indices
+
+obtener el primer elemento:
+
+a[0]
+
+obtener un indice x el elemento
+
+a[5]
+
+obtener el ultimo elemento:
+
+a[a.size-1]
+
+##################Subarreglo#######################
+
+-crear un sub arreglo:
+
+nombre_array[inicio:final:saltos]
+
+a[1:5:2]
+
+-crear un substring alrevez
+
+a[::-1]
+
+-para obtener ciertos indices apartir d euna lista
+
+lista = [0,3,4,5]
+
+a[lista]
+
+*solo se imprimiran los indices de lista
+
+-o se puede poner una lista manualmente y solo desplegara
+los indices 
+
+a[ [0,0,3,4]]
+
+-se podra multiplicar todos los valores del arreglo por un valores
+
+a * 10
+
+
