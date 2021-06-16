@@ -85,3 +85,41 @@ a[ [0,0,3,4]]
 a * 10
 
 
+####################Tipos de datos #####################
+
+podemos utilizaar 
+
+int +
+int -
+8,6,32,64 bytes
+flotantes
+complejos
+strings
+
+crear un array
+
+np.array([1,2,3,4,5])
+
+crear un array con numeros flotantes
+
+np.array([1,2,3,4,5], dtype='f')
+
+o
+
+np.array([1,2,3,4,5], dtype=np.float32)
+
+crear array con solo numeros enteros
+
+np.array([1,2,3,4,5], dtype='i')
+
+o
+
+np.array([1,2,3,4,5], dtype=np.integer)
+
+crear un array con solo booleanos
+
+np.array([1,0,0,1,0], dtype='?')
+
+o
+
+np.array([1,2,3,4,5], dtype=np.bool)
