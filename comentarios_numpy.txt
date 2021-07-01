@@ -96,7 +96,7 @@ flotantes
 complejos
 strings
 
-crear un array
+crear un array (recibiend una lista)
 
 np.array([1,2,3,4,5])
 
@@ -123,3 +123,158 @@ np.array([1,0,0,1,0], dtype='?')
 o
 
 np.array([1,2,3,4,5], dtype=np.bool)
+
+otra forma de crear arreglos
+
+-crear una arreglo a partir de un rango
+
+np.arange(0, 10)
+
+-tambien con cierto numero d epasos
+
+np.arrange(0,20,2)
+
+-un arreglo de puros 0 se ingresa el numero de ciertos
+
+np.zeros(10)
+
+np.zeros(10, dtype=np.int32)
+
+-un arreglo de puros 1 se ingresa el numero de unos)
+
+np.ones(10)
+
+np.ones(10, np.int32
+
+-un arreglo de cierto tipo de valor un numero de veces
+
+np.full(numero de datos, el dato a repetir)
+
+np.full(10,5)
+
+-un arreglo con  numeros aleatorios se ingres el numero de datos
+
+np.random.random(15)
+
+-un arreglo con numeros aleatorios dentro de un rango
+
+np.random.randint(num_inicial,num_final,numero de numeros)
+
+np.random.randint(0,25,10)
+
+####################Arreglos multimencionales (matrices ###########)
+
+-creacion de una matriz
+
+np.array([[1,2,3,4,5],
+         [10,20,30,40,50],
+         [100,200,300,400,500]])
+
+-para ver las dimensiones de nuestro arreglo
+
+a.ndim
+
+-para ver la froma del arreglo
+
+a.shape
+
+-conocer el numero de elementos  de nuestro arreglo
+
+a.size
+
+-queremos la primera linea
+
+a[0]
+
+queremos una posicion en especifica
+
+a[2][4]
+
+ó
+
+a[2,4]
+
+queremos varias posiciones en especificas
+
+a[1][1:4]
+
+ó
+
+a[1,1:4]
+
+o
+
+con un listado de indices
+a[1, [0,2,3]]
+
+convertira la matriz en un solo arreglo
+
+a.revel() 
+
+###############actualziar arreglos################
+
+crearemos un array
+
+a = np.arange(0,10)
+
+modificar un indice
+
+a[indice a modificar] = valor_nuevo
+a[5] = 100
+
+modificar varios indices rango por un valor
+a[inicio_final]
+a[0:4] = 20
+
+modificar varios indices (numero indice) por un valor
+
+a[[indices]]
+a[[4,6,7]]= 10
+
+agregar un elemento en el final al arreglo
+
+    np.append(arreglo,valor)
+a = np.append(a,50)
+
+eliminar un elemento del arreglo
+
+a = np.delete(a,5)
+
+######################shape########################
+
+seremos capaces de modificar nuestro arreglo
+
+ver el nuemro de dimensiones de nuestro arreglo 
+
+a.shape
+
+a =np.arange(0,15)
+
+pasar un arreglo de 15 posiciones a 3 tuplas de 5 posiciones
+
+a.shape = (3,5)
+
+crear un nuevo arreglo con las dimenciones que coloquemos como argumento
+
+b = a.reshape((a.size,))
+
+#########################axes###################33
+
+AXES
+Comencemos con algo sencillo. Imaginemos un arreglo bidimensional, de 2, 3. 2 Filas y 3 columnas. Para nosotros poder ubicarnos dentro de la matriz haremos uso del eje x y el eje y, tal y como de un plano cartesiano se tratará. A través del eje x seremos capaces de movernos de izquierda a derecha y con el eje y nos desplazamos de arriba hacia abajo. Hasta aquí ningún problema.
+
+Si recordamos, en Python, los arreglos comienzan en el índice 0, por lo tanto si queremos obtener el último elemento de la primera fila basta con colocar [0, 2] x=0, y=2
+
+Ahora, ¿Donde entran los axes/ejes en todo esto? Si seguimos con el ejemplo anterior, con nuestra matriz de 2, 3, podemos decir que la matriz posee 2 ejes, 2 dimensiones. El primer eje tiene por nombre axis 0, y representa a las filas de la matriz, por otro lado el segundo eje tiene por nombre axis 1 y representa a las columnas de la matriz.
+
+source: imgur.com
+
+Al igual que los índices los ejes (axes) comienzan en 0.
+
+Si estuviéramos trabajando con una matriz de 3 dimensiones (3D) hablariamos de 3 ejes/axis.
+
+Entonces ¿Un ejes es lo mismo que una dimensión? pues deja decirte que, según la documentación oficial de Numpy, Sí. Los Axes representan las dimensiones en un arreglo.
+
+Podemos definir la palabra dimensión como el número mínimo de coordenadas para representar un punto en un espacio. Una definición, si me permiten decirlo, muy acertada.
+
+Utilizados los axes/ejés podremos hacer cálculos muy puntuales sobre las dimensiones de nuestro arreglo. Veamos un par de ejemplos.
