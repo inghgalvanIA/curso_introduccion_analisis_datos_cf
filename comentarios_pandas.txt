@@ -1,0 +1,7 @@
+importar la libreria pandas
+
+import pandas as pd
+
+#############series############################
+
+

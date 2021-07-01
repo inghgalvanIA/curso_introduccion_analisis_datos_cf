@@ -278,3 +278,221 @@ Entonces ¿Un ejes es lo mismo que una dimensión? pues deja decirte que, según
 Podemos definir la palabra dimensión como el número mínimo de coordenadas para representar un punto en un espacio. Una definición, si me permiten decirlo, muy acertada.
 
 Utilizados los axes/ejés podremos hacer cálculos muy puntuales sobre las dimensiones de nuestro arreglo. Veamos un par de ejemplos.
+
+#####################transposicion#####################
+
+es una forma especial en la que podemos modificar nuestro arreglo
+
+crearemos una matriz apartir de un array en este caso 2x5
+
+a = np.arange(0,10).reshape(2,5)
+
+para acomodarla en forma vertical forma transpuesta
+
+a.T
+
+o
+
+a.transpose()
+
+resultado
+
+array([[0, 5],
+       [1, 6],
+       [2, 7],
+       [3, 8],
+       [4, 9]])
+
+###############operaciones basicas###############
+
+multiplicar todos lso elementos de un arreglo
+
+b = a * 2
+
+suma
+
+a + 10
+
+resta 
+
+a - 7
+
+divicion
+
+a / 2
+
+para sumar todos los elementos del array
+
+a.sum()
+
+para conocer el elemento mas pequeño
+
+a.mín()
+
+para conocer el elemento mas grande
+
+a.max()
+
+desviacion estandar de nuestro Arreglo
+
+a.std()
+
+la media del arreglo
+
+a.mean()
+
+generar una matriz con numeros aleatorios
+
+A = no.random.randint(1,10,10).reshape(2,5)
+
+tambien podemos hacer operaciones
+
+A + 2
+
+A * 2
+
+A / 2
+
+#######################ordenamientio##############################
+
+ordenar nuestros arreglos
+
+a = np.random.randint(1,100,50)
+
+ordenar de manera ascendente
+
+a.sort()
+
+ordenar de manera descendente
+
+usar 
+
+a.sort
+
+despues
+
+a[::-1]
+
+
+#####################Ejecutar funciones##################
+
+def simple_operation(val)
+
+    return val * 10
+
+a=np.random.randint(1,10,10)
+
+simple_operation(a[0])
+
+for i in a:
+    print(simple_operation(i))
+
+vectorizar un objeto 
+
+np.vectorize
+
+#################copias y vistas###########
+
+a = np.arange(10)
+
+son el mismo objeto direccioan el mimso espacio de memoria
+
+b = a
+
+id(a)
+
+id(b)
+
+si editamos a o b se vera reflejado en el otro por que apuntan al mismo espacio en memmoria
+
+para ver una vista de un arreglo
+
+vista de acceso de valores de un arreglo
+
+c = a.view()
+
+esto marcara que c es un objeto diferente de c
+
+lo comprobaremos con
+
+a is c
+
+aunque si editamos un valor de c sucedera lo mismo en a 
+
+ver si el valor de una vista base
+
+c.base
+
+para ver si es una vista o no
+
+a.flags
+
+en la llave ONDATA no sea una vista = True
+
+extraer un sublista es una vista
+
+copiar un arreglo que no sea una vista
+
+e = a.copy()
+
+en esto si modificamos un elemento no cambiaremos A
+
+############operadores-reacionales, operadores-logicos ###########
+
+podemos usar operadores en el arreglo
+
+a < 5
+
+[ True  True  True False False  True False  True False False]
+
+podemos utilizar los valores booleanos para obtener los indices
+
+b[[True,False,False,True]]
+
+nos retornara los valores que son true 
+
+array([1,4])
+
+num_operadores.py
+
+num_compara.py
+
+a > b es igual np.greater(a,b)
+
+######################lectura de archivos ###################
+
+salvar en un archivos con un arreglo
+
+np.savetxt
+
+np.savetxt(ruta,arreglo)
+np.savetxt("./numpy_lecturas/ejemplo.txt",a)
+
+
+cargar  un archivos
+np.loadtxt("/numpy_lecturas/ejemplo.txt",a)
+
+dalvar una matriz en formato excel
+
+a = np.random.randint(1,10,(3,5))
+
+np.savetxt(ruta,arreglo,caracter_separar)
+np.savetxt("./numpy_lecturas/ejemplo.csv",a,delimiter=";")
+
+guardar un arreglo en binario
+
+np.save("./numpy_lecturas/ejemplo.npy", a)
+
+para cargar un archivo binario
+np.load("./numpy_lecturas/ejemplo.npy")
+
+guardar en archivo de datos binarios comprimidos
+
+np.savez("./numpy_lecturas/ejemplo.npz",a)
+
+cargar una archivo binario comprimido 
+
+np.load("./numpy_lecturas/ejemplo.npz")
+
+leer archivos de forma flexible 
+np.genfromtxt()
