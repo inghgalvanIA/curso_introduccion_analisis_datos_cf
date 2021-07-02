@@ -3,5 +3,101 @@ importar la libreria pandas
 import pandas as pd
 
 #############series############################
+serie es un arreglo de una sola dimension
+
+contara con 2 columnas en lista 1 es los indices y la otra es el valor
 
 
+a = pd.Series([10,20,30,40,50])
+
+0    10
+1    20
+2    30
+3    40
+4    50
+
+
+para obtener un solo valor
+a[llave]
+a[0]
+
+para reasignar el valor de un indices
+a[0] = 100
+
+modificar los indices para que sean letras
+
+b = pd.Series([10,20,30,40,50],dtype=np.float32,index=["a","b","c","d","e"])
+
+podemos obtener valor de un listado de indices
+
+b["a","c","d"]
+
+crear una serie con un diccionario
+
+diccionaro = {
+    "a":10,
+    "b":200,
+    "c":3000
+}
+
+c = pd.Series( diccionario)
+
+podemos realizar todos los cambios de numpy a una serie
+
+creando una serie de 4 
+a = pd.Series( np.arange(4) )
+
+
+#cambiando los indices por letras
+b = pd.Series( np.arange(4), index=["a","b","c","d"] ,dtype=np.float32)
+
+# se le puede agregar un nombre de una serie
+a.name = "serie_a"
+
+#convertr los indices en una lista
+print(a.index.tolist())
+
+#operaciones con serie
+c= a * 10
+
+
+#operadores con serie
+d = a[a > 1]
+
+##############NaN##########################
+
+con la clase NaN representa la ausencia de valor
+none
+not
+
+#una serie con valores nulos
+a = pd.Series ([10,20,np.NaN,40,np.NaN])
+
+para saber si nuestra serie tiene valroes nulos
+valores = false
+valores nulos = True
+
+pd.isnull(a)
+
+o  inversa
+
+valores = True
+valores nulos = false
+
+pd.notnull(a)
+
+o
+
+a.isnull()
+
+para eliminar los valores nulos
+
+a.dropna()
+
+para sustituir los valores nulos con datos
+
+a.fillna(99)
+
+filtrar los elementos no nulos
+
+a[a.notnull]
