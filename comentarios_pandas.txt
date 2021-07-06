@@ -101,3 +101,151 @@ a.fillna(99)
 filtrar los elementos no nulos
 
 a[a.notnull]
+
+3NanN.py
+
+####################DATAFRAME########################
+
+UN DATFRAME es muy parecido a una matriz cuenta con filas y columnas
+
+o verlo como una hoja de excel seremos capaces de almacenar un n cantidad de informacion
+
+y dependiendo de la columna difetens tipo de tipos
+
+pd.Dataframe()
+
+#llaves seran las columanas
+usuarios = {
+    "nombre" : ["Eduardo","Uriel","Marines","Fernando"],
+    "calificaciones": [9,10,8.5,9.5],
+    "edad": [27,25,30,22],
+    "aprobado": [True,True,False,True]
+}
+
+crearemos nuestro Dataframe a partir de nuestro diccionario
+
+cambiar los indices de nuestro dataframe
+
+data_usuarios = pd.DataFrame(usuarios, index=["a","b","c","d"])
+
+#mandar llamar una columna
+
+usuarios["nombre"]
+
+#o
+
+usuarios.nombre
+
+conocer las columnas
+
+a.columns
+
+conocer las dimenciones del dateframe
+
+a.ndim
+
+#cuando solo queremos trabajar con ciertas columnas columns=[]
+a = pd.DataFrame(usuarios, index=["a","b","c","d"],columns=["nombre","calificaciones"])
+
+
+#creando un dataframe a partir de una matriz de array
+
+matriz = np.arange(12).reshape(3,4)
+
+df = pd.DataFrame(matriz, columns=["A","B","C","D"],index=["a","b","c"])
+
+#renombrar una columna
+
+df.rename(columns={"A":"first"})
+
+#renombrar una fila
+
+df_dos = df.rename(index={"a":"i_uno"})
+
+#obtener informacion de nuestro dataframe (columnas)
+print(df["nombre"])
+
+#o
+
+print(df.calificaciones)
+
+#obtener informacion de una columna un indice df.columna[fila]
+
+print(df.calificaciones[0])
+
+#obtener informacion de una columna un indice df.columna[fila]
+
+print(df.calificaciones[0])
+
+#con condicionales
+
+print(df.calificaciones[ df.calificaciones > 9])
+
+######################funciones@#################3
+
+para aplicar una funcion ocuparemos el metodo
+
+apply
+
+#apply aplicar funciones
+#axis=0 recorre por columnas x columna
+#axis=1 recorre por filas x fila
+#no se actualiza la columna se crea otra
+df_uno = df.apply(lambda row: row["edad"] + 1,axis=1)
+
+print(df_uno)
+
+#para actualizar la columna
+
+df.edad = df.apply(lambda row:row["edad"] +1,axis=1)
+
+print(df)
+
+############################lecturas de un archivo csv######################3
+
+#leer el archivo 
+#delimiter para ver que carcter separar nuestra lectura
+#header ponemos desde que linea empezara 
+df = pd.read_csv("./pandas-python-master/users.csv",delimiter=",",header=5)
+
+print(df)
+
+#obtener los primeros registros de nuestra dataframe (default 5)
+
+cinco_primeros = df.head(10)
+
+#obtener los ultimos registros de nuestra dataframe (default 5)
+
+cinco_ultimos = df.tail(10)
+
+#usecols selecionas con que columnas quiero trabajar
+#na_values cambiar un valor a NaN
+df = pd.read_csv("./pandas-python-master/paises.csv", usecols=["pais", "poblacion", "long", "lat"],na_values=["N/S"])
+
+print(df)
+
+#encontrar los paises que no sean nulos en la poblacion
+
+paisesdf = df[ df.poblacion.notnull() ]
+
+print(paisesdf)
+
+#convertit un int 
+
+paisesdf.apply( lambda row: str(row["poblacion"]).replace("."," ") ,axis=1)
+
+#ordenamiento 1.- indices 2.- columnas
+
+indices = df.sort_index()
+
+print(indices)
+
+#ordenamiento al reves
+
+indices = df.sort_index(ascending=False)
+
+print(indices)
+
+#crear un archivo csv
+
+df.to_csv("creado_paises.csv")
